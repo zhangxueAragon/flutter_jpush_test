@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jpush_flutter/jpush_flutter.dart';
 import 'package:jmessage_flutter/jmessage_flutter.dart';
 
 void main() => runApp(MyApp());
@@ -62,8 +63,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    JPush().setup(appKey: "6da0cdeaa4d433a05cb268a4");
+    JmessageFlutter().init(isOpenMessageRoaming: true, appkey: "6da0cdeaa4d433a05cb268a4");
     print("JmessageFlutter.init");
-    JmessageFlutter().init;
+
   }
 
   @override
