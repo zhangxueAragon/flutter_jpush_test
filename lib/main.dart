@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jmessage_flutter/jmessage_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -55,6 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("JmessageFlutter.init");
+    JmessageFlutter().init;
   }
 
   @override
