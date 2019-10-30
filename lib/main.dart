@@ -66,8 +66,21 @@ class _MyHomePageState extends State<MyHomePage> {
     JPush().setup(appKey: "6da0cdeaa4d433a05cb268a4");
     JmessageFlutter().init(isOpenMessageRoaming: true, appkey: "6da0cdeaa4d433a05cb268a4");
     print("JmessageFlutter.init");
-
+    JPush().addEventHandler(onReceiveMessage: onReceiveMessage,onOpenNotification: onOpenNotification,onReceiveNotification: onReceiveNotification);
   }
+
+  Future<dynamic> onReceiveNotification(Map<String, dynamic> event){
+    print("onReceiveNotification event=${event}");
+  }
+
+  Future<dynamic> onOpenNotification(Map<String, dynamic> event){
+    print("onOpenNotification event=${event}");
+  }
+
+  Future<dynamic> onReceiveMessage(Map<String, dynamic> event){
+    print("onReceiveMessage event=${event}");
+  }
+
 
   @override
   Widget build(BuildContext context) {
