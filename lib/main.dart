@@ -63,8 +63,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    JPush().setup(appKey: "6da0cdeaa4d433a05cb268a4");
+
+    JPush().setup(appKey: "6da0cdeaa4d433a05cb268a4", production: false, debug: true);
     JmessageFlutter().init(isOpenMessageRoaming: true, appkey: "6da0cdeaa4d433a05cb268a4");
+    JPush().applyPushAuthority();
     print("JmessageFlutter.init");
     JPush().addEventHandler(onReceiveMessage: onReceiveMessage,onOpenNotification: onOpenNotification,onReceiveNotification: onReceiveNotification);
   }
