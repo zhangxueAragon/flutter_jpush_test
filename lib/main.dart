@@ -48,6 +48,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  String text="界面打开之后稍等一点时间再点击去订阅";
+
   void _incrementCounter() {
     addTags();
   }
@@ -69,7 +71,10 @@ class _MyHomePageState extends State<MyHomePage> {
     String rid=await JPush().getRegistrationID();
     print("addTags---rid="+rid);
     JPush().addTags(["Insomniac_Announcements"]).then((map){
-      print("map == ${map}");
+      text="订阅Insomniac_Announcements成功";
+      setState(() {
+
+      });
     }).catchError((error){
       print("error=$error");
     });
@@ -109,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
           color: Colors.blue,
           child: InkWell(
             onTap: (){addTags();},
-            child: Text("界面打开之后稍等一点时间再点击去订阅"),
+            child: Text(text),
           ),
         )
       ),
