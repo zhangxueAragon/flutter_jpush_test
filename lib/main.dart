@@ -48,6 +48,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  JPush jPush=new JPush();
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -63,10 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    JPush().setup(appKey: "6da0cdeaa4d433a05cb268a4");
-    JmessageFlutter().init(isOpenMessageRoaming: true, appkey: "6da0cdeaa4d433a05cb268a4");
-    print("JmessageFlutter.init");
-    JPush().addEventHandler(onReceiveMessage: onReceiveMessage,onOpenNotification: onOpenNotification,onReceiveNotification: onReceiveNotification);
+    JPush jPush.setup(appKey: "6da0cdeaa4d433a05cb268a4");
+    jPush.addEventHandler(onReceiveMessage: onReceiveMessage,onOpenNotification: onOpenNotification,onReceiveNotification: onReceiveNotification);
   }
 
   Future<dynamic> onReceiveNotification(Map<String, dynamic> event){
