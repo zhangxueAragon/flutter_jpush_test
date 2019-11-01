@@ -69,6 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
     JPush().applyPushAuthority();
     print("JmessageFlutter.init");
     JPush().addEventHandler(onReceiveMessage: onReceiveMessage,onOpenNotification: onOpenNotification,onReceiveNotification: onReceiveNotification);
+    JPush().addTags(["Insomniac_Announcements"]).then((map){
+      print("map == ${map}");
+    });
   }
 
   Future<dynamic> onReceiveNotification(Map<String, dynamic> event){
